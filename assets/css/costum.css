@@ -1,0 +1,12 @@
+body {
+  background:url(../images/background.jpg);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.flat {
+	border-radius: 0px !important;
+}
+html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
