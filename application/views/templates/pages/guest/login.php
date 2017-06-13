@@ -41,11 +41,10 @@
   </div>
 
   <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
+  <div id="modal1" class="modal modal-fixed-footer"  ng-app="validationApp" ng-controller="mainController">
     <div class="modal-content">
       <div class="row">
-        <!-- Start validation form of angular js -->
-       <div ng-app="validationApp" ng-controller="mainController">
+    
         <form method="POST" name="userForm" ng-submit="submitForm()" novalidate>
           <div class="input-field col s12">
             <input id="name" type="text" class="validate " name="name" id="name" ng-model="name" ng-pattern="/^(.*?[a-zA-Z]){2,}$/"> 
@@ -82,18 +81,18 @@
           </div>
 
           <div class="input-field col s12">
-            <input id="confirmpassword" type="password" class="validate" name="cpassword" ng-model="cpassword" ng-required="true">
+            <input id="cpassword" type="password" class="validate" name="cpassword" ng-model="cpassword" ng-minlength="6" ng-maxlength="30" ng-required="true" required="">
             <label for="confirmpassword">Confirm Password</label>
             <div ng-messages="userForm.cpassword.$error">
                 <span ng-show="cpassword !== password" class="error">Password not match!</span>
             </div>
           </div>
-        </form>
-       </div>
+        
         <!-- End form validation angular js -->
       </div>
     </div>
     <div class="modal-footer">
-      <button id="register" class="modal-action  blue white-text waves-effect waves-light btn-flat" ng-disabled="!userForm.$valid">Register</button>
+      <button id="register" type="submit" class="modal-action  blue white-text waves-effect waves-light btn-flat" ng-disabled="!userForm.$valid">Register</button>
+      </form>
     </div>
   </div>
