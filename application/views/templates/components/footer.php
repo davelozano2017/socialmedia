@@ -106,6 +106,7 @@
 	             }
 	             else
 	             {
+	             // catch error server side
 	                $.each(response.messages, function(key,value){
 	                  var element = $('#' + key);
 	                  element.closest('div.form-group')
