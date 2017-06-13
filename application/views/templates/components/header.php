@@ -10,11 +10,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		.error{
-			color: #e74c3c !important;
+			color: #e74c3c;
 		}
 		.validate.ng-touched.ng-invalid {
-           border-bottom: 3px solid #E3000E;
-           margin-bottom: 5px;
+           border-bottom: 3px solid #E3000E ;
+           margin-bottom: 5px ;
         }
         
 	</style>
