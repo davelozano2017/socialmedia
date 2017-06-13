@@ -32,23 +32,53 @@
 
   });
 
-  // create angular app
-	var validationApp = angular.module('validationApp', ['ngMessages']);
+ //  // create angular app
+	// var validationApp = angular.module('validationApp', ['ngMessages']).controller;
 
-	// create angular controller
-	validationApp.controller('mainController', function($scope) {
+	// // create angular controller
+	// validationApp.controller('mainController', function($scope) {
 
-		// function to submit the form after all validation has occurred			
-		$scope.submitForm = function() {
+(function() {
+  "use strict";
+  angular
+    .module('validationApp', ['ngMessages'])
+    .controller('mainController', mainController)
+    .directive('passwordVerify', passwordVerify);
 
-			// check to make sure the form is completely valid
-			if ($scope.userForm.$valid) {
-				alert('our form is amazing');
-			}
+  function mainController($scope) {
+    // Some code
+  }
 
-		};
+  function passwordVerify() {
+    return {
+      restrict: 'A', // only activate on element attribute
+      require: '?ngModel', // get a hold of NgModelController
+      link: function(scope, elem, attrs, ngModel) {
+        if (!ngModel) return; // do nothing if no ng-model
 
-	});
+        // watch own value and re-validate on change
+        scope.$watch(attrs.ngModel, function() {
+          validate();
+        });
+
+        // observe the other value and re-validate on change
+        attrs.$observe('passwordVerify', function(val) {
+          validate();
+        });
+
+        var validate = function() {
+          // values
+          var val1 = ngModel.$viewValue;
+          var val2 = attrs.passwordVerify;
+
+          // set validity
+          ngModel.$setValidity('passwordVerify', val1 === val2);
+        };
+      }
+    }
+  }
+})();
+
 
 </script>
 </body>

@@ -71,20 +71,22 @@
           </div>
           
           <div class="input-field col s12">
-            <input id="password" type="password" class="validate" name="password" ng-model="password" ng-minlength="6" ng-maxlength="30" required ng-required="true">
+            <input id="password" type="password" class="validate" name="password" ng-model="password" ng-minlength="6" ng-maxlength="30" required ng-required="true" password-verify="{{cpassword}}">
             <label for="password">Password</label>
             <div ng-messages="userForm.password.$error" ng-if="userForm.password.$dirty">
               <span ng-message="minlength" class="error">Password is too short</span>
               <span ng-message="maxlength" class="error">Password is too long</span>
               <span ng-message="required"  class="error">Password is Required</span>
+              <span ng-message="passwordVerify" class="error">No match!</span>
             </div>
           </div>
 
           <div class="input-field col s12">
-            <input id="cpassword" type="password" class="validate" name="cpassword" ng-model="cpassword" ng-minlength="6" ng-maxlength="30" ng-required="true" required="">
+            <input id="cpassword" type="password" class="validate" name="cpassword" ng-model="cpassword" ng-minlength="6" ng-maxlength="30" ng-required="true" required="" password-verify="{{password}}">
             <label for="confirmpassword">Confirm Password</label>
             <div ng-messages="userForm.cpassword.$error">
-                <span ng-show="cpassword !== password" class="error">Password not match!</span>
+                <!-- <span ng-show="cpassword !== password" class="error">Password not match!</span> -->
+                <span ng-message="passwordVerify" class="error">No match!</span>
             </div>
           </div>
         
