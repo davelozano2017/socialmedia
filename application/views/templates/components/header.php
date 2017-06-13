@@ -19,4 +19,4 @@
         
 	</style>
 </head>
-<body ng-app="validationApp">
+<body ng-app="validationApp" ng-controller="mainController">
