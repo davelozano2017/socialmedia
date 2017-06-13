@@ -71,6 +71,6 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#" class="modal-action  blue white-text waves-effect waves-light btn-flat">Register</a>
+      <button id="register" class="modal-action  blue white-text waves-effect waves-light btn-flat">Register</button>
     </div>
   </div>
