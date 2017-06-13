@@ -32,11 +32,6 @@
 
   });
 
- //  // create angular app
-	// var validationApp = angular.module('validationApp', ['ngMessages']).controller;
-
-	// // create angular controller
-	// validationApp.controller('mainController', function($scope) {
 
 (function() {
   "use strict";
@@ -78,7 +73,52 @@
     }
   }
 })();
+		   $("#reg-form").submit(function(event){
+	        event.preventDefault();
+	        var form = $(this);
+	        $.ajax({
+	          url:  form.attr('action'),
+	          type: 'post',
+	          data: form.serialize(),
+	          dataType: 'json',
+	          processData: false,
+	          success: function(response)
+	          {
+	             if(response.success == true)
+	             {
+	             alert('success')
+	          	//  pansamantala habang wala pa  
+	            //    $.amaran({
+			    //     'theme'     :'awesome ok',
+			    //     'content'   :{
+			    //         title:'Welcome Back!',
+			    //         message:'You are successfully logged in!',
+			    //         info:'',
+			    //         icon:'fa fa-check-square-o'
 
+			    //     },
+			    //     'position'  :'bottom right',
+			    //     'outEffect' :'slideBottom',
+			    //     'afterEnd'  :function() {
+			    //         // location.href = 'home';
+			    //     }
+			    // });
+	             }
+	             else
+	             {
+	                $.each(response.messages, function(key,value){
+	                  var element = $('#' + key);
+	                  element.closest('div.form-group')
+	                  .removeClass('has-error')
+	                  .removeClass('has-success')
+	                  .addClass(value.length > 0 ? 'has-error' : 'has-success')
+	                  .find('.text-danger').remove();
+	                  element.after(value);
+	                });
+	             }
+	          }
+	        });
+	    });
 
 </script>
 </body>

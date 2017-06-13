@@ -45,7 +45,7 @@
     <div class="modal-content">
       <div class="row">
     
-        <form method="POST" name="userForm" ng-submit="submitForm()" novalidate>
+        <form method="POST" name="userForm" novalidate id="reg-form">
           <div class="input-field col s12">
             <input id="name" type="text" class="validate " name="name" id="name" ng-model="name" ng-pattern="/^(.*?[a-zA-Z]){2,}$/"> 
             <label for="name">Name</label>
