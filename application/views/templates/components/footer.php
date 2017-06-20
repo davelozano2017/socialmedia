@@ -1,28 +1,46 @@
+ <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/materialize.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.amaran.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/angular/angular-main.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/angular/1.4.2.angular.min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <script src="<?php echo base_url()?>assets/app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="<?php echo base_url()?>assets/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+    <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.amaran.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/angular/angular-main.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/angular/1.4.2.angular.min.js"></script>
+  </body>
+</html>
+
+
 <script type="text/javascript">
 
   $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('#modal1').modal();
-    $('select').material_select();
-
     $('#register').click(function(e){
     	e.preventDefault();
     	$.amaran({
 	        'theme'     :'awesome ok',
 	        'content'   :{
-	            title:'Welcome Back!',
-	            message:'You are successfully logged in!',
-	            info:'',
-	            icon:'fa fa-check-square-o'
-
+	            title:'Congratulations!',
+	            message:'Your account has been created!',
+	            info:'Please go to your email and activate your account.',
+	            icon:'icon-user-check'
 	        },
 	        'position'  :'bottom right',
+		        'inEffect'  :'slideRight',
 	        'outEffect' :'slideBottom',
 	        'afterEnd'  :function() {
 	            // location.href = 'home';
