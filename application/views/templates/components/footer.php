@@ -1,5 +1,7 @@
  <!-- ////////////////////////////////////////////////////////////////////////////-->
 
+   
+
     <!-- BEGIN VENDOR JS-->
     <script src="<?php echo base_url()?>assets/app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
@@ -10,18 +12,12 @@
     <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN ROBUST JS-->
+    <script src="<?php echo base_url()?>assets/app-assets/vendors/js/ui/prism.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/app-assets/js/core/app.js" type="text/javascript"></script>
-    <!-- END ROBUST JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS-->
-    <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.amaran.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>assets/angular/angular-main.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>assets/angular/1.4.2.angular.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery.amaran.min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url()?>assets/angular/angular-main.min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url()?>assets/angular/1.4.2.angular.min.js" type="text/javascript" ></script>
   </body>
 </html>
 
