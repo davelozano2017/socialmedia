@@ -64,7 +64,7 @@
                         </div>
                         <div class="card-body collapse in">
                             <div class="card-block">
-                                <form class="form-horizontal form-simple" name="FormRegister" novalidate>
+                                <form action="Register/registerUser" method="post" class="form-horizontal form-simple" name="FormRegister" id="register" novalidate>
                                   
                                   <div class="form-group">
                                     <div ng-messages="FormRegister.name.$error" ng-if="FormRegister.name.$dirty">
@@ -109,14 +109,14 @@
                                   </div>
 
                                   <div class="form-group">
-                                    <div ng-messages="FormRegister.cpassword.$error" ng-if="FormRegister.password.$dirty">
+                                    <div ng-messages="FormRegister.cpassword.$error" ng-if="FormRegister.cpassword.$dirty">
                                         <span ng-message="passwordVerify" class="error">Password not match!</span>
                                     </div>
                                     <input id="cpassword" type="password" placeholder="Confirm Password" class="form-control" name="cpassword" ng-model="cpassword" ng-minlength="6" ng-maxlength="30" ng-required="true" required="" password-verify="{{password}}">
 
                                   </div>
-
-                                <button type="submit" id="register" ng-disabled="!FormRegister.$valid" class="btn btn-success btn-block">
+                                <!-- ng-disabled="!FormRegister.$valid"  -->
+                                <button type="submit" id="register" class="btn btn-success btn-block">
                                     <i class="icon-android-person-add"></i> REGISTER
                                 </button>
 
@@ -159,27 +159,75 @@
 
 <script type="text/javascript">
 
-  $(document).ready(function(){
-    $('#register').click(function(e){
-        e.preventDefault();
-        $.amaran({
-            'theme'     :'awesome ok',
-            'content'   :{
-                title:'Congratulations!',
-                message:'Your account has been created!',
-                info:'Please go to your email and activate your account.',
-                icon:'icon-user-check'
-            },
-            'position'  :'bottom right',
-                'inEffect'  :'slideRight',
-            'outEffect' :'slideBottom',
-            'afterEnd'  :function() {
-                // location.href = 'home';
-            }
-        });
-    })
+  // $(document).ready(function(){
+  //   $('#register').click(function(e){
+  //       e.preventDefault();
+  //       $.amaran({
+  //           'theme'     :'awesome ok',
+  //           'content'   :{
+  //               title:'Congratulations!',
+  //               message:'Your account has been created!',
+  //               info:'Please go to your email and activate your account.',
+  //               icon:'icon-user-check'
+  //           },
+  //           'position'  :'bottom right',
+  //               'inEffect'  :'slideRight',
+  //           'outEffect' :'slideBottom',
+  //           'afterEnd'  :function() {
+  //               // location.href = 'home';
+  //           }
+  //       });
+  //   })
 
-  });
+  // });
+
+
+  $("#register").submit(function(event){
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+          url:  form.attr('action'),
+          type: 'post',
+          data: form.serialize(),
+          dataType: 'json',
+          processData: false,
+          success: function(response)
+          {
+             if(response.success == true)
+             {
+                 $.amaran({
+                    'theme'     :'awesome ok',
+                    'content'   :{
+                        title:'Congratulations!',
+                        message:'Your account has been created!',
+                        info:'Please go to your email and activate your account.',
+                        icon:'icon-user-check'
+                    },
+                    'position'  :'bottom right',
+                        'inEffect'  :'slideRight',
+                    'outEffect' :'slideBottom',
+                    'afterEnd'  :function() {
+                        // location.href = 'home';
+                    }
+                });
+                $('#register')[0].reset();
+                $('.text-danger').remove();
+                $('.form-group').removeClass('has-error').removeClass('has-success');
+             }
+             else
+             {
+                $.each(response.messages, function(key,value){
+                  var element = $('#' + key);
+                  element.closest('div.form-group')
+                  .find('.text-danger').remove();
+                  element.after(value);
+                });
+             }
+          }
+        });
+    });
+
+
 
 
 (function() {
